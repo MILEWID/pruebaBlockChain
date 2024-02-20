@@ -1,29 +1,5 @@
 [
 	{
-		"inputs": [],
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": false,
-				"internalType": "bool",
-				"name": "aprobado",
-				"type": "bool"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "montoAprobado",
-				"type": "uint256"
-			}
-		],
-		"name": "PrestamoAprobado",
-		"type": "event"
-	},
-	{
 		"inputs": [
 			{
 				"internalType": "uint256",
@@ -48,6 +24,63 @@
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "montoPrestamo",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "edad",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "ingresoMensual",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "anosTrabajo",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "credito",
+				"type": "uint256"
+			}
+		],
+		"name": "recibirDatosPrestamo",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "bool",
+				"name": "aprobado",
+				"type": "bool"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "montoAprobado",
+				"type": "uint256"
+			}
+		],
+		"name": "PrestamoAprobado",
+		"type": "event"
 	},
 	{
 		"inputs": [],
@@ -131,39 +164,6 @@
 			}
 		],
 		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "montoPrestamo",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "edad",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "ingresoMensual",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "anosTrabajo",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "credito",
-				"type": "uint256"
-			}
-		],
-		"name": "recibirDatosPrestamo",
-		"outputs": [],
-		"stateMutability": "nonpayable",
 		"type": "function"
 	}
 ]
