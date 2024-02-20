@@ -355,7 +355,7 @@ const App = () => {
         // const contractAddress = '0xEEE268680f5020C06e00980898ebdA1415a05DA2';
 
 
-        const provider = new ethers.JsonRpcProvider('https://eth-sepolia.g.alchemy.com/v2/27Byo4JHf5OZYCJVrw0XRdjoi3Vq8JzQ');
+        const provider = new ethers.WebSocketProvider('wss://eth-sepolia.g.alchemy.com/v2/27Byo4JHf5OZYCJVrw0XRdjoi3Vq8JzQ');
        const signer = new ethers.Wallet('b8ab8db711170a4fb1fdc6e9c65680651b5231ebbf539613b931ae39e865dcdb', provider);
 
        const contractAddress = '0xEEE268680f5020C06e00980898ebdA1415a05DA2';
@@ -368,12 +368,14 @@ const App = () => {
         const instance = new ethers.Contract(contractAddress, contractAbi, signer);
         setContractInstance(instance);
 
-        const manejarEventoAprobacion = (aprobado, monto) => {
+        const manejarEventoAprobacion = (aprobado, montoAprobado) => {
           setResult(aprobado ? '¡Préstamo Aprobado!' : 'Préstamo No Aprobado');
-          console.log("manejar evento aprobado ",aprobado)
+          // console.log("manejar evento aprobado ",aprobado)
+          console.log(`Préstamo Aprobado: ${aprobado} con un monto de ${montoAprobado}`);
         };
 
           instance.on("PrestamoAprobado", (aprobado, montoAprobado) => {
+            console.log(`Préstamo Aprobado`);
           console.log(`Préstamo Aprobado: ${aprobado} con un monto de ${montoAprobado}`);
       });
 
@@ -386,7 +388,7 @@ const App = () => {
         console.error('Error connecting to MetaMask:', error);
       }
     };
-
+      console.log("hola conectar contrato");
     conectarContrato();
   }, []);
 
@@ -397,7 +399,7 @@ const App = () => {
     }
 
     try {
-      const transaccion = await contractInstance.recibirDatosPrestamo(1000, 25, 2000, 5, 750);
+      const transaccion = await contractInstance.recibirDatosPrestamo(3000, 25, 1000, 5, 750);
       console.log('Transaction sent:', transaccion);
     } catch (error) {
       console.error('Error sending transaction:', error);
